@@ -5,36 +5,23 @@ public class No_2 {
         new No_2().addTwoNumbers(new ListNode(0),new ListNode(0));
     }
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        long node1,node2;
-        node1 = node2 = 0;
-        while(l1!=null){
-            node1*=10;
-            node1+=l1.val;
-            l1 = l1.next;
+        ListNode dummyHead = new ListNode(0);
+        ListNode p = l1, q = l2, curr = dummyHead;
+        int carry = 0;
+        while (p != null || q != null) {
+            int x = (p != null) ? p.val : 0;
+            int y = (q != null) ? q.val : 0;
+            int sum = carry + x + y;
+            carry = sum / 10;
+            curr.next = new ListNode(sum % 10);
+            curr = curr.next;
+            if (p != null) p = p.next;
+            if (q != null) q = q.next;
         }
-        while (l2!=null){
-            node2*=10;
-            node2+=l2.val;
-            l2 = l2.next;
+        if (carry > 0) {
+            curr.next = new ListNode(carry);
         }
-        node1+=node2;
-        node1 = 18;
-        ListNode ans = new ListNode((int) (node1%10));
-        node1/=10;
-        l1 = ans;
-        while(node1!=0){
-            node2 = node1%10;
-            node1 = node1/10;
-            l2 = new ListNode((int) node2);
-            l1.next = l2;
-            l1 = l1.next;
-        }
-        l1 = ans;
-        while(l1!=null){
-            System.out.println(l1.val);
-            l1 = l1.next;
-        }
-        return ans;
+        return dummyHead.next;
     }
 }
 
