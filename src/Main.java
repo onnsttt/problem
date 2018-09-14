@@ -1,5 +1,179 @@
 
 
+public class Main{
+    public static void main(String[] args) {
+
+    }
+    public void setZeroes(int[][] matrix) {
+
+    }
+}
+
+
+
+/*
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner cin = new Scanner(System.in);
+        String str1,str2;
+        str1 = cin.next();
+        str2 = cin.next();
+        String ans = "";
+        for(int i = 0;i<str1.length();i++){
+            if(str1.charAt(i)==str2.charAt(0)&&str1.length()-i<=str2.length()){
+                ans = getAns(str1.substring(i),str2);
+                if(ans.length()!=0){
+                    break;
+                }
+            }
+        }
+        System.out.println(ans.length());
+    }
+    static String getAns(String str1,String str2){
+        int flag = 0;
+        for(int i = 0;i<str1.length();i++){
+            if(str1.charAt(i)!=str2.charAt(i)){
+                flag = 1;
+                break;
+            }
+        }
+        if(flag==1)
+            return "";
+        else
+            return str1;
+    }
+
+}
+*/
+
+/*
+import java.math.BigInteger;
+import java.util.*;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner cin = new Scanner(System.in);
+        ArrayList<BigInteger> list = new ArrayList<>();
+        int n = cin.nextInt();
+        list.add(BigInteger.ONE);
+        getUglyNumber(list,n);
+        Collections.sort(list);
+       // System.out.println(list);
+        System.out.println(list.get(n-1));
+    }
+    public static void getUglyNumber(ArrayList<BigInteger>list,int n){
+        int len = list.size();
+        Set<BigInteger> set = new HashSet<>();
+        while(true){
+            len = list.size();
+            for(int i = 0;i<len;i++){
+                BigInteger num = list.get(i);
+                if(!set.contains(num.multiply(BigInteger.valueOf(2)))){
+                    list.add(num.multiply(BigInteger.valueOf(2)));
+                    set.add(num.multiply(BigInteger.valueOf(2)));
+                }
+                if(!set.contains(num.multiply(BigInteger.valueOf(3)))){
+                    list.add(num.multiply(BigInteger.valueOf(3)));
+                    set.add(num.multiply(BigInteger.valueOf(3)));
+                }
+                if(!set.contains(num.multiply(BigInteger.valueOf(5)))){
+                    list.add(num.multiply(BigInteger.valueOf(5)));
+                    set.add(num.multiply(BigInteger.valueOf(5)));
+                }
+            }
+            if(list.size()>5000){
+                return;
+            }
+        }
+    }
+}
+*/
+
+/*
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner cin = new Scanner(System.in);
+        String str = cin.nextLine();
+        int array[] = new int[1001];
+        for(int i = 0;i<str.length();i++){
+            array[str.charAt(i)]++;
+        }
+        int min = str.length();
+        for(int i =0;i<str.length();i++ ){
+            if(array[str.charAt(i)]<min)
+                min = array[str.charAt(i)];
+        }
+        String ans = "";
+        for(int i =0;i<str.length();i++){
+            if(array[str.charAt(i)]!=min){
+                ans+=str.charAt(i);
+            }
+        }
+        System.out.println(ans);
+    }
+}*/
+
+
+/**
+ * 第四范式的笔试题
+ */
+/*
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner cin = new Scanner(System.in);
+        String str = cin.nextLine();
+        String ans = ""+str.charAt(0);
+        for(int i = 0;i<str.length()-1;i++){
+            if(str.charAt(i)==str.charAt(i+1)){
+                String tmp = getString(str,i);
+                if(tmp.length()>ans.length())
+                    ans = tmp;
+                if(ans.length()==str.length())
+                    break;
+            }
+        }
+        System.out.println(ans);
+    }
+    static String getString(String str,int x){
+        int i = x,j = x+1;
+        while(i>0&&j<str.length()-1){
+            if(str.charAt(i)==str.charAt(j)){
+                i--;
+                j++;
+            }else {
+                i++;
+                j--;
+                break;
+            }
+        }
+        if(str.charAt(i)!=str.charAt(j)){
+            i++;j--;
+        }
+        return str.substring(i,j+1);
+    }
+}
+*/
+
+/*
+
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner cin = new Scanner(System.in);
+        BigInteger x = cin.nextBigInteger();
+        BigInteger y = cin.nextBigInteger();
+        System.out.println(x.multiply(y));
+    }
+}
+*/
 
 
 
