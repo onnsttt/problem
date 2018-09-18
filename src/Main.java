@@ -1,14 +1,120 @@
-
+import java.util.Scanner;
 
 public class Main{
     public static void main(String[] args) {
-
-    }
-    public void setZeroes(int[][] matrix) {
-
+        Scanner cin = new Scanner(System.in);
+        int n = cin.nextInt();
+        System.out.println(n&(n-1));
     }
 }
 
+/*
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner cin = new Scanner(System.in);
+        int array[] = new int[100000];
+        int candy[] = new int[100000];
+        String str = cin.nextLine();
+        String[] string = str.split(" ");
+        int m = string.length;
+        for(int i = 0;i<m;i++){
+            array[i] = Integer.parseInt(string[i]);
+        }
+        Arrays.sort(array,0,string.length);
+        str = cin.nextLine();
+        string = str.split(" ");
+        int n = string.length;
+        for(int i = 0;i<n;i++)
+            candy[i] = Integer.parseInt(string[i]);
+        Arrays.sort(candy,0,n);
+        int ans = 0;
+        n--;
+        m--;
+        while(n>=0&&m>=0){
+            if(candy[n]>=array[m]){
+                n--;
+                m--;
+                ans++;
+            }else {
+                m--;
+            }
+        }
+        System.out.println(ans);
+    }
+}*/
+
+
+
+/*
+import java.util.*;
+
+public class Main{
+    public static void main(String[] args) {
+        System.out.println(new Main().salaryfrequeny(6,new int[]{4,1,2,3,4,5}));
+    }
+    public int maxNumOfWeeks(int projectCount, int[] projectsModule) {
+        Arrays.sort(projectsModule,0,projectCount);
+        int ans = 0;
+        projectCount--;
+        for(int i = 0;i<projectCount;i++){
+            if(projectsModule[projectCount]>projectsModule[i]){
+                ans+=projectsModule[i]*2;
+                projectsModule[projectCount]-=projectsModule[i];
+            }else {
+                ans+=projectsModule[projectCount]*2;
+                projectsModule[i--]-=projectsModule[projectCount--];
+            }
+        }
+        if(projectsModule[projectCount]>0||(projectCount>0&&projectsModule[projectCount-1]>0))
+            ans++;
+        return ans;
+    }
+
+    int sumOfPerformance(int num, int[] listPFR)
+    {
+       int max = 0;
+       for(int i = 1;i<num;i++){
+           if(listPFR[i]>listPFR[max])
+               max = i;
+       }
+       if(max==num-1){
+           return (num-1)*10+15;
+       }
+       return (num-1)*5+15;
+    }
+    List<Integer> salaryfrequeny(int num, int[] salaries)
+    {
+        List<List<Integer>> list = new ArrayList<>();
+        Map<Integer,Integer> map = new HashMap<>();
+        int tmp = 0;
+        for(int i = 0;i<num;i++){
+            if(map.containsKey(salaries[i])){
+                list.get(map.get(salaries[i])).add(salaries[i]);
+            }else {
+                map.put(salaries[i],tmp++);
+                List<Integer> t = new ArrayList<>();
+                t.add(salaries[i]);
+                list.add(t);
+            }
+        }
+        Collections.sort(list, new Comparator<List<Integer>>() {
+            @Override
+            public int compare(List<Integer> o1, List<Integer> o2) {
+                return o2.size()-o1.size();
+            }
+        });
+        List<Integer> ans = new ArrayList<>();
+        for(int i = 0;i<list.size();i++){
+            for(int j = 0;j<list.get(i).size();j++)
+                ans.add(list.get(i).get(j));
+        }
+        return ans;
+    }
+}
+*/
 
 
 /*
